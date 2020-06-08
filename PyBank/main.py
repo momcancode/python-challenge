@@ -39,7 +39,13 @@ print(f"Average Change: ${average_change}")
 print(f"Greatest Increase in Profits: {month_list[indexone + 1]} (${max_increase})")
 print(f"Greatest Decrease in Profits: {month_list[indextwo + 1]} (${max_decrease})")
 
-
 writepath = os.path.join("analysis", "analysis.txt")
 
 with open(writepath, "w") as outputfile:
+    print("Financial Analysis")
+    print("-----------------------------")
+    print(f"Total Months: {number_of_months}")
+    print(f"Total: ${total}")
+    print(f"Average Change: ${average_change}")
+    print(f"Greatest Increase in Profits: {month_list[indexone + 1]} (${max_increase})")
+    print(f"Greatest Decrease in Profits: {month_list[indextwo + 1]} (${max_decrease})")
