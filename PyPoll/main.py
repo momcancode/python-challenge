@@ -17,14 +17,7 @@ with open(path, "r") as inputfile:
         votelist.append(voteID)
         candidatelist.append(candidate)
 
-writepath = os.path.join("analysis", "analysis.txt")
-
-print("Election Results")
-print("---------------------------")
-
 total_vote = len(votelist)
-print(f"Total Votes: {total_vote}")
-print("---------------------------")
 
 unique_candidate_list = list()
 
@@ -32,6 +25,7 @@ for candidate in candidatelist:
     if candidate not in unique_candidate_list:
         unique_candidate_list.append(candidate)
 
+vote_each_won = list()
 vote_for_x = 0
 
 for x in unique_candidate_list:
@@ -39,12 +33,32 @@ for x in unique_candidate_list:
         if x == y:
             vote_for_x += 1
 
-    percent_vote = vote_for_x/total_vote*100
-    print(f"{x}: {percent_vote:.3f}% ({vote_for_x})")
+    vote_each_won.append(vote_for_x)
     vote_for_x = 0
 
-print("---------------------------")
+percent_votes = [each/total_vote*100 for each in vote_each_won]
 
+max_votes = max(vote_each_won)
+winner_index = vote_each_won.index(max_votes)
+winner = unique_candidate_list[winner_index]
 
+summary = zip(unique_candidate_list, percent_votes, vote_each_won)
+newline = '\n'
 
-    
+finalresult = (
+    "Election Results",
+    "---------------------------",
+    f"Total Votes: {total_vote}",
+    "---------------------------",
+    [f"{element[0]}: {element[1]:.3f}% ({element[2]}){newline}" for element in summary],
+    "---------------------------",
+    f"Winner: {winner}",
+    "---------------------------"
+)
+
+print(*finalresult, sep="\n")
+
+writepath = os.path.join("analysis", "analysis.txt")
+
+with open(writepath, "w") as outputfile:
+    print(*finalresult, sep="\n", file= outputfile)
