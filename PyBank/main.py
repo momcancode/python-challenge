@@ -31,21 +31,18 @@ indexone = change_list.index(max_increase)
 max_decrease = min(change_list)
 indextwo = change_list.index(max_decrease)
 
-print("Financial Analysis")
-print("-----------------------------")
-print(f"Total Months: {number_of_months}")
-print(f"Total: ${total}")
-print(f"Average Change: ${average_change}")
-print(f"Greatest Increase in Profits: {month_list[indexone + 1]} (${max_increase})")
-print(f"Greatest Decrease in Profits: {month_list[indextwo + 1]} (${max_decrease})")
+summary = ("Financial Analysis",
+"-----------------------------",
+f"Total Months: {number_of_months}",
+f"Total: ${total}",
+f"Average Change: ${average_change}",
+f"Greatest Increase in Profits: {month_list[indexone + 1]} (${max_increase})",
+f"Greatest Decrease in Profits: {month_list[indextwo + 1]} (${max_decrease})"
+)
+
+print("\n".join(summary))
 
 writepath = os.path.join("analysis", "analysis.txt")
 
 with open(writepath, "w") as outputfile:
-    print("Financial Analysis")
-    print("-----------------------------")
-    print(f"Total Months: {number_of_months}")
-    print(f"Total: ${total}")
-    print(f"Average Change: ${average_change}")
-    print(f"Greatest Increase in Profits: {month_list[indexone + 1]} (${max_increase})")
-    print(f"Greatest Decrease in Profits: {month_list[indextwo + 1]} (${max_decrease})")
+    print("\n".join(summary), file= outputfile)
