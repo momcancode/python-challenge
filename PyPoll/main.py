@@ -48,8 +48,8 @@ def get_summary(file_name):
 		summarylist_print = "\n".join(summarylist)
 
 		# Find the winner of the election based on popular vote
-		if vote_percent[key] > max_vote:
-			max_vote = vote_percent[key]
+		if vote_count[key] > max_vote:
+			max_vote = vote_count[key]
 			election_winner = key
 
 	# Return the required summary analysis	
