@@ -39,7 +39,7 @@ def get_summary(file_name):
     indextwo = change_list.index(max_decrease)
     max_decrease_month = month_list[indextwo + 1]
 
-    summary = ("Financial Analysis",
+    return ("Financial Analysis",
                 "-----------------------------",
                 f"Total Months: {number_of_months}",
                 f"Total: ${total}",
@@ -47,8 +47,6 @@ def get_summary(file_name):
                 f"Greatest Increase in Profits: {max_increase_month} (${max_increase})",
                 f"Greatest Decrease in Profits: {max_decrease_month} (${max_decrease})"
             )
-
-    return summary
 
 
 def print_summary(outcome):
