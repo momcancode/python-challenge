@@ -50,14 +50,15 @@ def get_summary(file_name):
     max_decrease_month = month_list[indextwo + 1]
 
     # Return the required summary analysis
-    return ("Financial Analysis",
-                "-----------------------------",
-                f"Total Months: {number_of_months}",
-                f"Total: ${total}",
-                f"Average Change: ${average_change}",
-                f"Greatest Increase in Profits: {max_increase_month} (${max_increase})",
-                f"Greatest Decrease in Profits: {max_decrease_month} (${max_decrease})"
-            )
+    return (
+        "Financial Analysis",
+        "-----------------------------",
+        f"Total Months: {number_of_months}",
+        f"Total: ${total}",
+        f"Average Change: ${average_change}",
+        f"Greatest Increase in Profits: {max_increase_month} (${max_increase})",
+        f"Greatest Decrease in Profits: {max_decrease_month} (${max_decrease})"
+    )
 
 # Define function to print the results to the terminal
 def print_summary(outcome):
