@@ -1,2 +1,2 @@
 # python-challenge
-Monash Data Bootcamp Python Homework 1
+Monash Data Bootcamp Python Homework
